@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend for dchat",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run",
+    "prebuild": "npm install && npm test",
+    "build": "rm -rf target/resources  && mkdir -p target/resources/public && cp -r ./src/* target/resources/public"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^3.10.0",
+    "karma": "^6.3.5",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1",
+    "karma-junit-reporter": "^2.0.1"
+  }
+}

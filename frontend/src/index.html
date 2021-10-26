@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="dchat.css">
+    <title>dchat</title>
+</head>
+<body id="body" onload="onLoad()">
+
+<script type="module">
+    import {onLoad, onSendMessage, onUserNameChange} from "./js/dchat.js";
+    document.getElementById("body").onload = onLoad;
+    document.getElementById("userName").oninput = onUserNameChange;
+    document.getElementById("sendMessageButton").onclick = onSendMessage;
+</script>
+
+<h1>dchat: <span id="chatTitle">Unknown</span></h1>
+
+<form>
+    <label for="userName">User Name:</label>
+    <input id="userName" type="text" maxlength="12" />
+    <div id="messages" class="messages"></div>
+    <label for="messageText">Message:</label>
+    <input id="messageText" type="text" maxlength="60"/>
+    <button id="sendMessageButton" type="button">Send</button>
+</form>
+
+<div id="error"></div>
+
+</body>
+</html>

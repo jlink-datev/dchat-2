@@ -62,7 +62,7 @@ jobs:
         with:
           namespace: datev-workshop
           manifests: |
-            ./.github/workflows/datev-workshop-deploy.yml
+            ./.github/datev-workshop-deploy.yml
           images: |
             ghcr.io/jlink-datev/dchat-1:${{ github.sha }}
 

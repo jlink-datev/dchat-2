@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datev-workshop
+  namespace: datev-workshop
+  labels:
+    app : datev-workshop
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: datev-workshop
+  template:
+    metadata:
+      labels:
+        app: datev-workshop
+    spec:
+      containers:
+        - name: datev-workshop
+          image: 'ghcr.io/jlink-datev/dchat-1:latest'
+          imagePullPolicy: IfNotPresent
+          terminationMessagePolicy: FallbackToLogsOnError
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: 256M
+              cpu: '0.2'
+            limits:
+              memory: 512M
+              cpu: '0.4'
